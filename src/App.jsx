@@ -11,6 +11,8 @@ import {
   X
 } from 'lucide-react';
 
+const mock_logo="art.jpg";
+
 /**
  * 模拟数据
  */
@@ -30,40 +32,39 @@ let MOCK_SONGS = Array.from({ length: 5 }).map((_, i) => ({
 [00:40.00] 感谢收听`
 }));
 
-let nce_song = [
-  {
-    id: 0,
-    title: "01－A Private Conversation",
-    artist: "艺术家 1",
-    url: "./songs/01－A Private Conversation.mp3",
-    cover: "nce-logo.png",
-    lrc: `[00:00.00] 正在加载歌曲 1 的歌词...`
-  },
-  {
-    id: 1,
-    title: "24－It Could be Worse",
-    artist: "艺术家 1",
-    url: "./songs/24－It Could be Worse.mp3",
-    cover: "nce-logo.png",
-    lrc: `[00:00.00] 正在加载歌曲 1 的歌词...`
-  },
-  {
-    id: 2,
-    title: "02－Breakfast or Lunch",
-    artist: "艺术家 1",
-    url: "./songs/02－Breakfast or Lunch.mp3",
-    cover: "nce-logo.png",
-    lrc: `[00:00.00] 正在加载歌曲 1 的歌词...`
-  },
-  {
-    id: 3,
-    title: "03－Please Send Me a Card",
-    artist: "艺术家 1",
-    url: "./songs/03－Please Send Me a Card.mp3",
-    cover: "nce-logo.png",
-    lrc: `[00:00.00] 正在加载歌曲 1 的歌词...`
-  },
+
+const songTitles = [
+  "01－A Private Conversation",
+  "24－It Could be Worse",
+  "02－Breakfast or Lunch",
+  "03－Please Send Me a Card",
+  "04－An Exciting Trip",
+  "05－No Wrong Numbers",
+  "06 Percy Buttons 巴顿斯",
+  "07 Too Late 为时太晚 ",
+  "08 The Best and the Worst 最好的和最差的 ",
+  "09 A Cold Welcome 冷遇 ",
+  "10 Not for Jazz 不适于演奏爵士乐 ",
+  "11 One Good Turn Deserves Another 礼尚往来 ",
+  "12 Goodbye and Good Luck 再见，一路顺风 ",
+  "13 The Greenwood Boys 绿林少年 ",
+  "14 Do You Speak English 你会讲英语吗？ ",
+  "15 Good News 佳音 ",
+  "16 A Polite Request 彬彬有礼的要求 ",
+  "17 Always Young 青春常驻 ",
+  "18 He Often does This 他经常干这种事！ ",
+  "19 Sold Out 票已售完 ",
+  "20 One Man in a Boat 独坐孤舟 ",
 ];
+
+const nce_song = songTitles.map((title, index) => ({
+  id: index,
+  title: title,
+  artist: "艺术家 1",
+  url: `./songs/${title}.mp3`,
+  cover: mock_logo,
+  lrc: `[00:00.00] 正在加载歌曲的歌词...`
+}));
 
 MOCK_SONGS = [...nce_song, ...MOCK_SONGS];
 
@@ -86,6 +87,8 @@ const parseLRC = (lrcString) => {
   });
   return result;
 };
+
+
 
 const App = () => {
   const [songs] = useState(MOCK_SONGS);
